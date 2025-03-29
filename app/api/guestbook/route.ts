@@ -8,7 +8,7 @@ const guestbookEntries = [
     name: "RadDude1995",
     message: "This site is totally tubular! Keep up the good work!",
     date: "4/20/1999",
-    email: "raddude@aol.com",
+    email: "mailto:raddude@aol.com",
     homepage: "http://geocities.com/raddude",
   },
   {
@@ -16,7 +16,7 @@ const guestbookEntries = [
     name: "CyberGirl2000",
     message: "Love the retro vibes! Reminds me of my first website on GeoCities!",
     date: "3/15/1999",
-    email: "cybergirl@hotmail.com",
+    email: "mailto:cybergirl@hotmail.com",
     homepage: "http://angelfire.com/cybergirl",
   },
   {
@@ -24,7 +24,7 @@ const guestbookEntries = [
     name: "WebSurfer42",
     message: "Awesome page! Added you to my bookmarks!",
     date: "2/28/1999",
-    email: "websurfer@yahoo.com",
+    email: "mailto:websurfer@yahoo.com",
     homepage: "",
   },
 ]

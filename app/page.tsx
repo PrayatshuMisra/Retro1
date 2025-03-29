@@ -148,25 +148,25 @@ export default function HomePage() {
             <h2 className="text-2xl font-bold text-blue-700 mb-4 underline">Navigation</h2>
             <nav className="space-y-2">
               <div className="flex items-center">
-                <img src="/placeholder.svg?height=20&width=20" alt="Home icon" className="mr-2 h-5 w-5" />
+                <img src="/home.png?height=20&width=20" alt="Home icon" className="mr-2 h-5 w-5" />
                 <Link href="/" className="text-blue-600 hover:text-blue-800 underline">
                   Home Page
                 </Link>
               </div>
               <div className="flex items-center">
-                <img src="/placeholder.svg?height=20&width=20" alt="Forum icon" className="mr-2 h-5 w-5" />
+                <img src="/message.webp?height=20&width=20" alt="Forum icon" className="mr-2 h-5 w-5" />
                 <Link href="/forum" className="text-blue-600 hover:text-blue-800 underline">
                   Message Board
                 </Link>
               </div>
               <div className="flex items-center">
-                <img src="/placeholder.svg?height=20&width=20" alt="Profile icon" className="mr-2 h-5 w-5" />
+                <img src="/mp.jpg?height=20&width=20" alt="Profile icon" className="mr-2 h-5 w-5" />
                 <Link href="/profile" className="text-blue-600 hover:text-blue-800 underline">
                   My Profile
                 </Link>
               </div>
               <div className="flex items-center">
-                <img src="/placeholder.svg?height=20&width=20" alt="About icon" className="mr-2 h-5 w-5" />
+                <img src="/aboutimg.png?height=20&width=20" alt="About icon" className="mr-2 h-5 w-5" />
                 <Link href="/about" className="text-blue-600 hover:text-blue-800 underline">
                   About This Site
                 </Link>
