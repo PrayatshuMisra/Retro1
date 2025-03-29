@@ -5,27 +5,35 @@ import { NextResponse } from "next/server"
 const guestbookEntries = [
   {
     id: "1",
-    name: "RadDude1995",
-    message: "This site is totally tubular! Keep up the good work!",
+    name: "Cristiano_Ronaldo_Siuuuu",
+    message: "This site is really good! Keep it up! Siuuu!!!!",
     date: "4/20/1999",
     email: "mailto:raddude@aol.com",
     homepage: "http://geocities.com/raddude",
   },
   {
     id: "2",
-    name: "CyberGirl2000",
-    message: "Love the retro vibes! Reminds me of my first website on GeoCities!",
+    name: "Tony Stark",
+    message: "Love the retro vibes! But I love my modern Jarvis.",
     date: "3/15/1999",
     email: "mailto:cybergirl@hotmail.com",
     homepage: "http://angelfire.com/cybergirl",
   },
   {
     id: "3",
-    name: "WebSurfer42",
-    message: "Awesome page! Added you to my bookmarks!",
+    name: "MSD_7",
+    message: "Awesome page! As quick as my skills behind the wickets :)",
     date: "2/28/1999",
     email: "mailto:websurfer@yahoo.com",
     homepage: "",
+  },
+  {
+    id: "4",
+    name: "Elon Musk",
+    message: "Reminded me of my uni days. Wanna get hired and work for me!?",
+    date: "8/12/1999",
+    email: "mailto:cybergirl@hotmail.com",
+    homepage: "http://angelfire.com/cybergirl",
   },
 ]
 
