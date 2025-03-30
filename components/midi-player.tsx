@@ -32,17 +32,17 @@ export function MidiPlayer() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-10">
+    <div className="fixed top-16 right-4 z-10"> {/* Adjusted positioning */}
       <div className="bg-black border-2 border-yellow-500 p-2 rounded-lg shadow-lg flex items-center space-x-2">
         <Button
           onClick={togglePlay}
-          className={`w-8 h-8 flex items-center justify-center rounded-full ${
+          className={`w-6 h-6 flex items-center justify-center rounded-full ${
             isPlaying ? "bg-red-500" : "bg-green-500"
           }`}
         >
           {isPlaying ? "■" : "▶"}
         </Button>
-        <div className="text-white text-xs">{isPlaying ? "Mario" : "Play"}</div>
+        <div className="text-white text-xs">{isPlaying ? "Mario Theme" : "Play Music"}</div>
       </div>
     </div>
   )
