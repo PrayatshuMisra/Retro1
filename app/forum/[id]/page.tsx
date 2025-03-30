@@ -6,11 +6,11 @@ import { ForumThread } from "@/components/forum-thread"
 const getThread = (id: string) => {
   return {
     id,
-    title: "Welcome to RetroConnect!",
+    title: "Welcome to PixelConnect!",
     author: "Prayatshu Misra",
     date: "3/28/1999",
     content:
-      "Hello everyone! Welcome to RetroConnect, the coolest place on the web! Feel free to introduce yourselves and start posting! I've created this forum as a place for all of us 90s web enthusiasts to connect and share our love for the early internet. What was your first computer? What websites do you remember visiting back in the day?",
+      "Hello everyone! Welcome to PixelConnect, the coolest place on the web! Feel free to introduce yourselves and start posting! I've created this forum as a place for all of us 90s web enthusiasts to connect and share our love for the early internet. What was your first computer? What websites do you remember visiting back in the day?",
     category: "General Discussion",
     replies: [
       {
@@ -49,7 +49,7 @@ export default function ThreadPage({ params }: { params: { id: string } }) {
       {/* Header */}
       <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 border-b-8 border-black text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-[0.2rem_0.2rem_0px_#000]">
-          RetroConnect
+          PixelConnect
         </h1>
         <p className="text-white text-xl mt-2">Message Board</p>
       </header>
@@ -90,7 +90,7 @@ export default function ThreadPage({ params }: { params: { id: string } }) {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 PixelConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
           <a 
             href="https://sillydog.org/netscape/" 

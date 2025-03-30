@@ -141,7 +141,7 @@ export default function HomePage() {
       {/* Header with animated text */}
       <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 border-b-8 border-black text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-[0.2rem_0.2rem_0px_#000] animate-bounce">
-          RetroConnect
+          PixelConnect
         </h1>
         <p className="text-white text-xl mt-2 rainbow-text">The coolest place on the World Wide Web!</p>
         <div className="mt-4 flex justify-center space-x-4">
@@ -217,17 +217,17 @@ export default function HomePage() {
         {/* Main content area */}
         <div className="md:col-span-2">
           <div className="bg-white border-4 border-purple-700 p-4 rounded-lg shadow-[0.5rem_0.5rem_0px_#000]">
-            <h2 className="text-2xl font-bold text-purple-700 mb-4 underline">Welcome to RetroConnect!</h2>
+            <h2 className="text-2xl font-bold text-purple-700 mb-4 underline">Welcome to PixelConnect!</h2>
             <div className="flex justify-center mb-4">
               <img src="/retro_glitch.gif?height=200&width=400" alt="Welcome GIF" className="border-2 border-black" />
             </div>
             <p className="mb-4">
-              👋 Hey there, web surfer! Welcome to RetroConnect, your new home on the information superhighway! This
+              👋 Hey there, web surfer! Welcome to PixelConnect, your new home on the information superhighway! This
               radical website is a blast from the past with all the modern bells and whistles.
             </p>
             <div className="bg-yellow-200 border-2 border-yellow-600 p-3 mb-4">
               <p className="font-bold blink">🔥 HOT NEWS 🔥</p>
-              <p>RetroConnect just launched! Sign up now to reserve your cool username!</p>
+              <p>PixelConnect just launched! Sign up now to reserve your cool username!</p>
             </div>
             <div className="flex justify-center space-x-4 mt-6">
               <Link href="/register">
@@ -293,7 +293,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 PixelConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
           <a 
             href="https://sillydog.org/netscape/" 

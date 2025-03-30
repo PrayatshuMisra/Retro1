@@ -8,7 +8,7 @@ export default function ForumPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 border-b-8 border-black text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-[0.2rem_0.2rem_0px_#000]">
-          RetroConnect
+          PixelConnect
         </h1>
         <p className="text-white text-xl mt-2">Message Board</p>
       </header>
@@ -17,7 +17,7 @@ export default function ForumPage() {
       <main className="container mx-auto p-4">
         <div className="bg-white border-4 border-purple-700 p-4 rounded-lg shadow-[0.5rem_0.5rem_0px_#000] mb-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-purple-700 underline">RetroConnect Forums</h2>
+            <h2 className="text-2xl font-bold text-purple-700 underline">PixelConnect Forums</h2>
             <Link href="/">
               <Button className="bg-blue-500 text-white font-bold py-1 px-4 border-2 border-blue-900 rounded">
                 Back to Home
@@ -41,7 +41,7 @@ export default function ForumPage() {
             <div className="border-2 border-blue-500 rounded-lg overflow-hidden">
               <div className="bg-blue-500 text-white font-bold p-2">General Discussion</div>
               <div className="p-3 bg-blue-100">
-                <p>Talk about anything related to RetroConnect!</p>
+                <p>Talk about anything related to PixelConnect!</p>
                 <div className="text-sm text-gray-600 mt-1">15 threads • 42 replies • Last post: 2 hours ago</div>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function ForumPage() {
 
           <div className="space-y-4">
             <ForumPost
-              title="Welcome to RetroConnect!"
+              title="Welcome to PixelConnect!"
               author="Webmaster"
               date="3/28/1999"
               replies={5}
@@ -124,7 +124,7 @@ export default function ForumPage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 PixelConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
           <a 
             href="https://sillydog.org/netscape/" 

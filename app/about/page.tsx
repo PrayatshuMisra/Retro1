@@ -63,7 +63,7 @@ export default function AboutPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 border-b-8 border-black text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-[0.2rem_0.2rem_0px_#000]">
-          RetroConnect
+          PixelConnect
         </h1>
         <p className="text-white text-xl mt-2">About This Site</p>
       </header>
@@ -72,7 +72,7 @@ export default function AboutPage() {
       <main className="container mx-auto p-4">
         <div className="bg-white border-4 border-purple-700 p-4 rounded-lg shadow-[0.5rem_0.5rem_0px_#000] mb-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-purple-700 underline">About RetroConnect</h2>
+            <h2 className="text-2xl font-bold text-purple-700 underline">About PixelConnect</h2>
             <Link href="/">
               <Button className="bg-blue-500 text-white font-bold py-1 px-4 border-2 border-blue-900 rounded">
                 Back to Home
@@ -92,7 +92,7 @@ export default function AboutPage() {
             <div className="md:w-2/3">
               <h3 className="text-xl font-bold text-blue-700 mb-2">Welcome to my corner of the Web!</h3>
               <p className="mb-4">
-                RetroConnect was created in 1999 (well, not really, but let's pretend!) as a place for internet
+                PixelConnect was created in 1999 (well, not really, but let's pretend!) as a place for internet
                 enthusiasts to connect and share their love for all things digital. This website is a tribute to the
                 early days of the internet, when websites were colorful, quirky, and full of personality!
               </p>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 bright, clashing colors. It was a time of experimentation and fun!
               </p>
               <p>
-                RetroConnect aims to capture that nostalgic feeling while incorporating modern web technologies behind
+                PixelConnect aims to capture that nostalgic feeling while incorporating modern web technologies behind
                 the scenes. It's like stepping into a time machine, but with all the conveniences of today's internet!
               </p>
 
@@ -165,7 +165,7 @@ export default function AboutPage() {
                 <h4 className="font-bold text-xl mb-2">Prayatshu Misra</h4>
                 <p className="italic mb-4">"Keeping the 90s web alive one GIF at a time!"</p>
                 <p className="mb-4">
-                  Hi there! I'm the creator of RetroConnect. I've been fascinated with the internet since I first heard
+                  Hi there! I'm the creator of PixelConnect. I've been fascinated with the internet since I first heard
                   the sweet sound of a dial-up modem connecting to the World Wide Web. The 90s internet was a special
                   place, and I wanted to recreate that magic with modern tools.
                 </p>
@@ -188,7 +188,7 @@ export default function AboutPage() {
         <div className="bg-white border-4 border-green-700 p-4 rounded-lg shadow-[0.5rem_0.5rem_0px_#000]">
           <h2 className="text-2xl font-bold text-green-700 mb-4 underline">Sign the Guestbook</h2>
           <p className="mb-4">
-            Thanks for visiting RetroConnect! Please take a moment to sign the guestbook and let me know you were here!
+            Thanks for visiting PixelConnect! Please take a moment to sign the guestbook and let me know you were here!
           </p>
 
           <div className="bg-gray-200 border-2 border-gray-400 p-4 rounded">
@@ -256,7 +256,7 @@ export default function AboutPage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 PixelConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
           <a 
             href="https://sillydog.org/netscape/" 

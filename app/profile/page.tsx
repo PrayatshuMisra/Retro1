@@ -145,7 +145,7 @@ export default function ProfilePage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 border-b-8 border-black text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-[0.2rem_0.2rem_0px_#000]">
-          RetroConnect
+          PixelConnect
         </h1>
         <p className="text-white text-xl mt-2">My Profile Page</p>
       </header>
@@ -432,7 +432,7 @@ export default function ProfilePage() {
                         value={newPost}
                         onChange={(e) => setNewPost(e.target.value)}
                         className="border-2 border-gray-500 p-2 rounded w-full h-32"
-                        placeholder="What's on your mind? Share it with the RetroConnect community!"
+                        placeholder="What's on your mind? Share it with the PixelConnect community!"
                       />
                     </div>
 
@@ -468,7 +468,7 @@ export default function ProfilePage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 PixelConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
           <a 
             href="https://sillydog.org/netscape/" 

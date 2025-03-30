@@ -75,7 +75,7 @@ export function RegisterForm() {
 
   return (
     <Card className="border-4 border-green-700 p-6 rounded-lg shadow-[0.5rem_0.5rem_0px_#000] max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-green-700 mb-4 underline text-center">Join RetroConnect!</h2>
+      <h2 className="text-2xl font-bold text-green-700 mb-4 underline text-center">Join PixelConnect!</h2>
 
       {error && <div className="bg-red-100 border-2 border-red-500 text-red-700 p-3 rounded mb-4">{error}</div>}
 
@@ -156,7 +156,7 @@ export function RegisterForm() {
       </div>
 
       <div className="mt-6 border-t-2 border-gray-300 pt-4">
-        <h3 className="font-bold text-center mb-2">Why Join RetroConnect?</h3>
+        <h3 className="font-bold text-center mb-2">Why Join PixelConnect?</h3>
         <ul className="list-disc list-inside">
           <li>Connect with other 90s web enthusiasts</li>
           <li>Create your own customizable profile page</li>

@@ -57,7 +57,7 @@ export function LoginForm() {
 
   return (
     <Card className="border-4 border-blue-700 p-6 rounded-lg shadow-[0.5rem_0.5rem_0px_#000] max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-blue-700 mb-4 underline text-center">Login to RetroConnect</h2>
+      <h2 className="text-2xl font-bold text-blue-700 mb-4 underline text-center">Login to PixelConnect</h2>
 
       {error && <div className="bg-red-100 border-2 border-red-500 text-red-700 p-3 rounded mb-4">{error}</div>}
 

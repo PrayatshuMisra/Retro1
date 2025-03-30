@@ -11,8 +11,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>RetroConnect - A 90s Web Experience</title>
-        <meta name="description" content="RetroConnect - A nostalgic journey back to the 90s web" />
+        <title>PixelConnect - A 90s Web Experience</title>
+        <meta name="description" content="PixelConnect - A nostalgic journey back to the 90s web" />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
