@@ -171,6 +171,17 @@ export default function HomePage() {
                   About This Site
                 </Link>
               </div>
+              <div className="flex items-center">
+                <img src="/placeholder.svg?height=20&width=20" alt="Games icon" className="mr-2 h-5 w-5" />
+                <Link href="/games" className="text-blue-600 hover:text-blue-800 underline">
+                  <span className="relative">
+                    Retro Games
+                    <span className="absolute -top-2 -right-10 bg-red-500 text-white text-xs px-1 rounded animate-pulse">
+                      NEW!
+                    </span>
+                  </span>
+                </Link>
+              </div>
             </nav>
 
             <div className="mt-6">
