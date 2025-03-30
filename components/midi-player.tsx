@@ -42,7 +42,7 @@ export function MidiPlayer() {
         >
           {isPlaying ? "■" : "▶"}
         </Button>
-        <div className="text-white text-xs">{isPlaying ? "Now Playing: Mario Theme" : "Play Background Music"}</div>
+        <div className="text-white text-xs">{isPlaying ? "Now Playing: Mario Theme" : "Play Music"}</div>
       </div>
     </div>
   )
