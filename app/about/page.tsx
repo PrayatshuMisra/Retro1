@@ -131,6 +131,8 @@ export default function AboutPage() {
                   <li>CSS (with Tailwind CSS for styling)</li>
                   <li>JavaScript (with React and Next.js)</li>
                   <li>Responsive design (works on modern devices)</li>
+                  <li>TypeScript (for static typing and returning errors)</li>
+                  <li>Gaming link (for retro gaming lovers)</li>
                 </ul>
               </div>
 
@@ -139,27 +141,28 @@ export default function AboutPage() {
                 <ul className="list-disc list-inside ml-4">
                   <li>Next.js API routes</li>
                   <li>Database for user profiles and posts</li>
+                  <li>Database for managing users' profile updations</li>
                   <li>Weather API integration</li>
-                  <li>User authentication system</li>
+                  <li>User authentication system using password match etc.</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div className="mt-8 border-t-2 border-gray-300 pt-6">
-            <h3 className="text-xl font-bold text-red-700 mb-4">Meet the Webmaster</h3>
+            <h3 className="text-xl font-bold text-red-700 mb-4">Meet the Website Creator</h3>
 
             <div className="flex flex-col md:flex-row gap-6 items-center">
               <div className="md:w-1/4">
                 <img
-                  src="/placeholder.svg?height=200&width=200"
+                  src="/img2.jpg?height=200&width=200"
                   alt="Webmaster"
                   className="border-4 border-red-500 rounded-full h-auto max-w-full"
                 />
               </div>
 
               <div className="md:w-3/4">
-                <h4 className="font-bold text-xl mb-2">RetroMaster99</h4>
+                <h4 className="font-bold text-xl mb-2">Prayatshu Misra</h4>
                 <p className="italic mb-4">"Keeping the 90s web alive one GIF at a time!"</p>
                 <p className="mb-4">
                   Hi there! I'm the creator of RetroConnect. I've been fascinated with the internet since I first heard
@@ -172,7 +175,7 @@ export default function AboutPage() {
                 </p>
 
                 <div className="mt-4">
-                  <Button className="bg-gradient-to-r from-purple-500 to-purple-700 text-white font-bold py-1 px-4 border-2 border-purple-900 rounded">
+                  <Button className="bg-gradient-to-r from-purple-500 to-purple-700 text-white font-bold py-1 px-4 border-2 border-purple-900 rounded" onClick={() => window.location.href = 'mailto:prayatshumisra2005@gmail.com'}>
                     Contact Me
                   </Button>
                 </div>
@@ -255,12 +258,18 @@ export default function AboutPage() {
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
         <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
-          <img src="/placeholder.svg?height=40&width=40" alt="Netscape Now!" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Internet Explorer" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Made with HTML" className="h-10" />
+          <img src="/netscape.png?height=40&width=40" alt="Netscape Now!" className="h-10" />
+          <img src="/exp.png?height=40&width=40" alt="Internet Explorer" className="h-10" />
         </div>
         <p className="mt-2 text-sm">
           This page has been visited <span className="font-bold">1,337</span> times since March 1999
+        </p>
+        <p className="mt-2 text-sm">
+          Made by
+          <div className="flex justify-center items-center">
+            <img src="/love.png?height=40&width=40" alt="Love" className="h-10 mx-2" />
+          </div>
+          <span className="font-bold">Prayatshu Misra(ByteMe)</span>
         </p>
       </footer>
     </div>
