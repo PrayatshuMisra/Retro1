@@ -274,7 +274,7 @@ export default function GamesPage() {
               >
                 <h3 className="text-xl font-bold text-green-700 mb-2 text-center">Snake</h3>
                 <div className="flex justify-center mb-2">
-                  <img src="/placeholder.svg?height=100&width=100" alt="Snake Game" className="border-2 border-black" />
+                  <img src="/snake.png?height=100&width=100" alt="Snake Game" className="border-2 border-black" />
                 </div>
                 <p className="text-center">
                   Classic Snake game! Eat the food, grow longer, don't hit the walls or yourself!
@@ -292,7 +292,7 @@ export default function GamesPage() {
               >
                 <h3 className="text-xl font-bold text-blue-700 mb-2 text-center">Pong</h3>
                 <div className="flex justify-center mb-2">
-                  <img src="/placeholder.svg?height=100&width=100" alt="Pong Game" className="border-2 border-black" />
+                  <img src="/pong.jpg?height=100&width=100" alt="Pong Game" className="border-2 border-black" />
                 </div>
                 <p className="text-center">
                   The original video game! Move your paddle to bounce the ball back and forth.
@@ -308,7 +308,7 @@ export default function GamesPage() {
                 <h3 className="text-xl font-bold text-red-700 mb-2 text-center">Tetris</h3>
                 <div className="flex justify-center mb-2">
                   <img
-                    src="/placeholder.svg?height=100&width=100"
+                    src="/tetris.webp?height=100&width=100"
                     alt="Tetris Game"
                     className="border-2 border-black"
                   />
@@ -364,7 +364,7 @@ export default function GamesPage() {
                           }}
                           className="bg-gradient-to-r from-green-500 to-green-700 text-white font-bold py-2 px-6 border-4 border-green-900 rounded-lg shadow-[0.25rem_0.25rem_0px_#000]"
                         >
-                          PLAY AGAIN
+                          To replay, Exit and Play Again
                         </Button>
                       </div>
                     ) : (
@@ -428,7 +428,7 @@ export default function GamesPage() {
                   <tbody>
                     <tr className="bg-green-100">
                       <td className="p-2 font-bold">1</td>
-                      <td className="p-2">SnakeMaster99</td>
+                      <td className="p-2">PrayatshuMisra</td>
                       <td className="p-2">250</td>
                       <td className="p-2">3/15/1999</td>
                     </tr>
@@ -463,13 +463,13 @@ export default function GamesPage() {
                   <tbody>
                     <tr className="bg-blue-100">
                       <td className="p-2 font-bold">1</td>
-                      <td className="p-2">PongChamp</td>
+                      <td className="p-2">TitaniumReborn</td>
                       <td className="p-2">42</td>
                       <td className="p-2">3/18/1999</td>
                     </tr>
                     <tr>
                       <td className="p-2 font-bold">2</td>
-                      <td className="p-2">ArcadePro</td>
+                      <td className="p-2">PrayatshuMisra</td>
                       <td className="p-2">38</td>
                       <td className="p-2">3/21/1999</td>
                     </tr>
@@ -489,11 +489,32 @@ export default function GamesPage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-        <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
-          <img src="/placeholder.svg?height=40&width=40" alt="Netscape Now!" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Internet Explorer" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Made with HTML" className="h-10" />
+          <a 
+            href="https://sillydog.org/netscape/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/netscape.png?height=40&width=40" alt="Netscape Now!" className="h-10" />
+          </a>
+          <a 
+            href="https://www.microsoft.com/en-us/download/internet-explorer.aspx" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/exp.png?height=40&width=40" alt="Internet Explorer" className="h-10" />
+          </a>
+          <a 
+            href="https://www.w3.org/html/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/htm.gif?height=40&width=40" alt="Made with HTML" className="h-10" />
+          </a>
         </div>
         <p className="mt-2 text-sm">
           This page has been visited <span className="font-bold">1,337</span> times since March 1999

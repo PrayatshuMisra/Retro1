@@ -2,8 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ForumThread } from "@/components/forum-thread"
 
-// This would normally fetch from an API or database
-// For demo purposes, we'll hardcode a thread
+//hardcoding the thread
 const getThread = (id: string) => {
   return {
     id,
@@ -20,7 +19,7 @@ const getThread = (id: string) => {
         date: "3/28/1999",
         content:
           "Hey there! Great to be here! My first computer was a Packard Bell with Windows 95. I spent hours on GeoCities and playing Minesweeper!",
-        avatar: "/placeholder.svg?height=50&width=50",
+        avatar: "/user.avif?height=50&width=50",
       },
       {
         id: "2",
@@ -28,7 +27,7 @@ const getThread = (id: string) => {
         date: "3/29/1999",
         content:
           "This forum looks awesome! I remember when the internet made that dial-up sound and my mom would yell at me for tying up the phone line. Good times!",
-        avatar: "/placeholder.svg?height=50&width=50",
+        avatar: "/user.avif?height=50&width=50",
       },
       {
         id: "3",
@@ -36,7 +35,7 @@ const getThread = (id: string) => {
         date: "3/29/1999",
         content:
           "Checking in! I was all about Netscape Navigator and AltaVista search engine back in the day. Anyone remember the dancing baby GIF?",
-        avatar: "/placeholder.svg?height=50&width=50",
+        avatar: "/user.avif?height=50&width=50",
       },
     ],
   }
@@ -91,11 +90,32 @@ export default function ThreadPage({ params }: { params: { id: string } }) {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-        <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
-          <img src="/placeholder.svg?height=40&width=40" alt="Netscape Now!" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Internet Explorer" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Made with HTML" className="h-10" />
+          <a 
+            href="https://sillydog.org/netscape/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/netscape.png?height=40&width=40" alt="Netscape Now!" className="h-10" />
+          </a>
+          <a 
+            href="https://www.microsoft.com/en-us/download/internet-explorer.aspx" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/exp.png?height=40&width=40" alt="Internet Explorer" className="h-10" />
+          </a>
+          <a 
+            href="https://www.w3.org/html/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/htm.gif?height=40&width=40" alt="Made with HTML" className="h-10" />
+          </a>
         </div>
       </footer>
     </div>

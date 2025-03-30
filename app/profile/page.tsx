@@ -174,11 +174,11 @@ export default function ProfilePage() {
                   />
                 </div>
                 <h3 className="text-xl font-bold text-blue-800">{user.username}</h3>
-                <p className="text-sm text-gray-600 mb-2">Member since: {user.joinDate}</p>
+                <p className="text-sm text-gray-600 mb-2">Member since: {user.joinDate.replace(/\d{4}/, '1999')}</p>
                 <div className="flex justify-center space-x-2 mb-4">
-                  <img src="/placeholder.svg?height=20&width=20" alt="Star" className="h-5 w-5" />
-                  <img src="/placeholder.svg?height=20&width=20" alt="Star" className="h-5 w-5" />
-                  <img src="/placeholder.svg?height=20&width=20" alt="Star" className="h-5 w-5" />
+                  <img src="/mus.webp?height=20&width=20" alt="Star" className="h-5 w-5" />
+                  <img src="/ntbk.jpg?height=20&width=20" alt="Star" className="h-5 w-5" />
+                  <img src="/bur.webp?height=20&width=20" alt="Star" className="h-5 w-5" />
                 </div>
                 <div className="text-left space-y-2">
                   <div>
@@ -221,10 +221,10 @@ export default function ProfilePage() {
                 <div className="mt-4">
                   <h4 className="font-bold text-pink-700">My Favorite Links:</h4>
                   <ul className="list-disc list-inside ml-4 text-blue-600">
-                    <li className="underline cursor-pointer">My Geocities Homepage</li>
-                    <li className="underline cursor-pointer">Cool 90s Games Archive</li>
-                    <li className="underline cursor-pointer">Best MIDI Music Collection</li>
-                    <li className="underline cursor-pointer">Webmaster Resources</li>
+                    <li className="underline cursor-pointer"><a href="https://www.netflix.com/in/browse/genre/2691941">Nostalgic 90s movies Collection</a></li>
+                    <li className="underline cursor-pointer"><a href="https://90kids.com/games/">Cool 90s Games Archive</a></li>
+                    <li className="underline cursor-pointer"><a href="https://www.my90splaylist.com/">Best Music Collection</a></li>
+                    <li className="underline cursor-pointer"><a href="https://www.w3.org/TR/html401/intro/intro.html">Resource to HTML 4</a></li>
                   </ul>
                 </div>
               </div>
@@ -285,15 +285,15 @@ export default function ProfilePage() {
                 <h3 className="text-xl font-bold text-purple-700 underline mb-2">My Photo Gallery</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   <div className="border-2 border-yellow-500 p-2 bg-white">
-                    <img src="/placeholder.svg?height=100&width=100" alt="Gallery image 1" className="w-full h-auto" />
+                    <img src="/comp.jpg?height=100&width=100" alt="Gallery image 1" className="w-full h-auto" />
                     <p className="text-center text-sm mt-1">My Computer</p>
                   </div>
                   <div className="border-2 border-yellow-500 p-2 bg-white">
-                    <img src="/placeholder.svg?height=100&width=100" alt="Gallery image 2" className="w-full h-auto" />
+                    <img src="/gaming.webp?height=100&width=100" alt="Gallery image 2" className="w-full h-auto" />
                     <p className="text-center text-sm mt-1">Gaming Setup</p>
                   </div>
                   <div className="border-2 border-yellow-500 p-2 bg-white">
-                    <img src="/placeholder.svg?height=100&width=100" alt="Gallery image 3" className="w-full h-auto" />
+                    <img src="/cds.jpg?height=100&width=100" alt="Gallery image 3" className="w-full h-auto" />
                     <p className="text-center text-sm mt-1">CD Collection</p>
                   </div>
                 </div>
@@ -468,11 +468,32 @@ export default function ProfilePage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-        <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
         <div className="flex justify-center space-x-4 mt-2">
-          <img src="/placeholder.svg?height=40&width=40" alt="Netscape Now!" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Internet Explorer" className="h-10" />
-          <img src="/placeholder.svg?height=40&width=40" alt="Made with HTML" className="h-10" />
+          <a 
+            href="https://sillydog.org/netscape/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/netscape.png?height=40&width=40" alt="Netscape Now!" className="h-10" />
+          </a>
+          <a 
+            href="https://www.microsoft.com/en-us/download/internet-explorer.aspx" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/exp.png?height=40&width=40" alt="Internet Explorer" className="h-10" />
+          </a>
+          <a 
+            href="https://www.w3.org/html/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/htm.gif?height=40&width=40" alt="Made with HTML" className="h-10" />
+          </a>
         </div>
         <p className="mt-2 text-sm">
           This page has been visited <span className="font-bold">1,337</span> times since March 1999

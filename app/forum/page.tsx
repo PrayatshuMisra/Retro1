@@ -124,10 +124,33 @@ export default function ForumPage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-        <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
-        <p className="mt-2 text-sm">
-          This page has been visited <span className="font-bold">1,337</span> times since March 1999
-        </p>
+      <p>© 1999 RetroConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+        <div className="flex justify-center space-x-4 mt-2">
+          <a 
+            href="https://sillydog.org/netscape/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/netscape.png?height=40&width=40" alt="Netscape Now!" className="h-10" />
+          </a>
+          <a 
+            href="https://www.microsoft.com/en-us/download/internet-explorer.aspx" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/exp.png?height=40&width=40" alt="Internet Explorer" className="h-10" />
+          </a>
+          <a 
+            href="https://www.w3.org/html/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img src="/htm.gif?height=40&width=40" alt="Made with HTML" className="h-10" />
+          </a>
+        </div>
       </footer>
     </div>
   )

@@ -6,7 +6,7 @@ const forumPosts = [
   {
     id: "1",
     title: "Welcome to RetroConnect!",
-    author: "Webmaster",
+    author: "Prayatshu Misra",
     date: "3/28/1999",
     content:
       "Hello everyone! Welcome to RetroConnect, the coolest place on the web! Feel free to introduce yourselves and start posting!",
@@ -17,7 +17,7 @@ const forumPosts = [
   {
     id: "2",
     title: "Who's excited for the Y2K bug?",
-    author: "TechGuru99",
+    author: "TitaniumReborn",
     date: "3/27/1999",
     content:
       "So what do you all think will happen when the year 2000 hits? Will all computers stop working? I'm stocking up on canned food just in case!",
