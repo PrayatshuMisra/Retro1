@@ -8,7 +8,7 @@ const getThread = (id: string) => {
   return {
     id,
     title: "Welcome to RetroConnect!",
-    author: "Webmaster",
+    author: "Prayatshu Misra",
     date: "3/28/1999",
     content:
       "Hello everyone! Welcome to RetroConnect, the coolest place on the web! Feel free to introduce yourselves and start posting! I've created this forum as a place for all of us 90s web enthusiasts to connect and share our love for the early internet. What was your first computer? What websites do you remember visiting back in the day?",
@@ -16,7 +16,7 @@ const getThread = (id: string) => {
     replies: [
       {
         id: "1",
-        author: "TechGuru99",
+        author: "TitaniumReborn",
         date: "3/28/1999",
         content:
           "Hey there! Great to be here! My first computer was a Packard Bell with Windows 95. I spent hours on GeoCities and playing Minesweeper!",
@@ -24,7 +24,7 @@ const getThread = (id: string) => {
       },
       {
         id: "2",
-        author: "CyberGirl2000",
+        author: "CyberSeeker",
         date: "3/29/1999",
         content:
           "This forum looks awesome! I remember when the internet made that dial-up sound and my mom would yell at me for tying up the phone line. Good times!",

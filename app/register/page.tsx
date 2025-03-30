@@ -26,7 +26,7 @@ export default function RegisterPage() {
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
           >
-            <img src="/placeholder.svg?height=40&width=40" alt="Netscape Now!" className="h-10" />
+            <img src="/netscape.png?height=40&width=40" alt="Netscape Now!" className="h-10" />
           </a>
           <a 
             href="https://www.microsoft.com/en-us/download/internet-explorer.aspx" 
@@ -34,7 +34,7 @@ export default function RegisterPage() {
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
           >
-            <img src="/placeholder.svg?height=40&width=40" alt="Internet Explorer" className="h-10" />
+            <img src="/exp.png?height=40&width=40" alt="Internet Explorer" className="h-10" />
           </a>
           <a 
             href="https://www.w3.org/html/" 
@@ -42,7 +42,7 @@ export default function RegisterPage() {
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
           >
-            <img src="/placeholder.svg?height=40&width=40" alt="Made with HTML" className="h-10" />
+            <img src="/htm.gif?height=40&width=40" alt="Made with HTML" className="h-10" />
           </a>
         </div>
       </footer>
