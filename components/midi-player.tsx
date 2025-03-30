@@ -27,7 +27,7 @@ export function MidiPlayer() {
     localStorage.setItem("musicButtonPosition", JSON.stringify(position))
   }, [position])
 
-  const togglePlay = (event: React.MouseEvent) => {
+  const togglePlay = (event: React.MouseEvent | React.TouchEvent) => {
     event.stopPropagation() // Prevent drag from interfering with click
 
     if (!audioRef.current) {
@@ -44,28 +44,36 @@ export function MidiPlayer() {
     setIsPlaying(!isPlaying)
   }
 
-  const handleMouseDown = (event: React.MouseEvent) => {
+  const handleDragStart = (event: React.MouseEvent | React.TouchEvent) => {
     event.preventDefault()
-    const startX = event.clientX - position.x
-    const startY = event.clientY - position.y
 
-    const handleMouseMove = (moveEvent: MouseEvent) => {
-      setPosition({ x: moveEvent.clientX - startX, y: moveEvent.clientY - startY })
+    const startX = "touches" in event ? event.touches[0].clientX - position.x : event.clientX - position.x
+    const startY = "touches" in event ? event.touches[0].clientY - position.y : event.clientY - position.y
+
+    const handleMove = (moveEvent: MouseEvent | TouchEvent) => {
+      const clientX = "touches" in moveEvent ? moveEvent.touches[0].clientX : moveEvent.clientX
+      const clientY = "touches" in moveEvent ? moveEvent.touches[0].clientY : moveEvent.clientY
+      setPosition({ x: clientX - startX, y: clientY - startY })
     }
 
-    const handleMouseUp = () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-      window.removeEventListener("mouseup", handleMouseUp)
+    const handleEnd = () => {
+      window.removeEventListener("mousemove", handleMove)
+      window.removeEventListener("mouseup", handleEnd)
+      window.removeEventListener("touchmove", handleMove)
+      window.removeEventListener("touchend", handleEnd)
     }
 
-    window.addEventListener("mousemove", handleMouseMove)
-    window.addEventListener("mouseup", handleMouseUp)
+    window.addEventListener("mousemove", handleMove)
+    window.addEventListener("mouseup", handleEnd)
+    window.addEventListener("touchmove", handleMove)
+    window.addEventListener("touchend", handleEnd)
   }
 
   return (
     <div
       ref={buttonRef}
-      onMouseDown={handleMouseDown}
+      onMouseDown={handleDragStart}
+      onTouchStart={handleDragStart}
       style={{
         left: position.x,
         top: position.y,
