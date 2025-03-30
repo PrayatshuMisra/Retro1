@@ -110,11 +110,12 @@ export default function AboutPage() {
                 <h4 className="font-bold">Site Features:</h4>
                 <ul className="list-disc list-inside ml-4">
                   <li>Message Board for discussions</li>
-                  <li>Personal Profile Pages</li>
-                  <li>Guestbook</li>
+                  <li>Personal Editable Profile Pages</li>
+                  <li>Guestbook Entry</li>
                   <li>Weather Widget</li>
                   <li>Visitor Counter</li>
                   <li>Photo Gallery</li>
+                  <li>Popular 90s Retro Games</li>
                 </ul>
               </div>
             </div>
