@@ -100,7 +100,7 @@ export default function GamesPage() {
       // Draw food
       ctx.fillStyle = "red"
       ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2)
-    }, 100)
+    }, 200)
 
     // Handle keyboard input
     const handleKeyDown = (e: KeyboardEvent) => {
