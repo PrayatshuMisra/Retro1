@@ -113,6 +113,7 @@ export default function AboutPage() {
                   <li>Personal Editable Profile Pages</li>
                   <li>Guestbook Entry</li>
                   <li>Weather Widget</li>
+                  <li>Mario Theme Song to give the retro vibe</li>
                   <li>Visitor Counter</li>
                   <li>Photo Gallery</li>
                   <li>Popular 90s Retro Games</li>
