@@ -24,26 +24,35 @@ export default function HomePage() {
   const [guestbookEntries, setGuestbookEntries] = useState<GuestbookEntryType[]>([
     {
       id: "1",
-      name: "RadDude1995",
-      message: "This site is totally tubular! Keep up the good work!",
+      name: "Cristiano_CR7",
+      message: "This site is really good! Keep it up! Siuuuu!!!!",
       date: "4/20/1999",
-      email: "raddude@aol.com",
-      homepage: "http://geocities.com/raddude",
+      email: "mailto:prayatshumisra2005@gmail.com",
+      homepage: "https://youtu.be/dQw4w9WgXcQ?si=LoXT3GAW86CrzIB2",
     },
     {
       id: "2",
-      name: "CyberGirl2000",
-      message: "Love the retro vibes! Reminds me of my first website on GeoCities!",
+      name: "Tony Stark",
+      message: "Love the retro vibes! But I love my modern Jarvis!",
       date: "3/15/1999",
-      email: "cybergirl@hotmail.com",
-      homepage: "http://angelfire.com/cybergirl",
+      email: "mailto:prayatshumisra2005@gmail.com",
+      homepage: "https://youtu.be/dQw4w9WgXcQ?si=LoXT3GAW86CrzIB2",
     },
     {
       id: "3",
-      name: "WebSurfer42",
-      message: "Awesome page! Added you to my bookmarks!",
+      name: "MSD_7",
+      message: "Awesome page! As quick as my skills behind the wickets :)",
       date: "2/28/1999",
-      email: "websurfer@yahoo.com",
+      email: "mailto:prayatshumisra2005@gmail.com",
+      homepage: "https://youtu.be/dQw4w9WgXcQ?si=LoXT3GAW86CrzIB2",
+    },
+    {
+      id: "4",
+      name: "Elon Musk",
+      message: "Reminded me of my uni days. Wanna get hired and work for me!?",
+      date: "8/12/1999",
+      email: "mailto:prayatshumisra2005@gmail.com",
+      homepage: "https://youtu.be/dQw4w9WgXcQ?si=LoXT3GAW86CrzIB2",
     },
   ])
 
@@ -179,10 +188,15 @@ export default function HomePage() {
                     <span className="absolute -top-2 -right-10 bg-red-500 text-white text-xs px-1 rounded animate-pulse">
                       NEW!
                     </span>
+                    <span className="absolute top-6 -right-32 text-black text-xs px-1 rounded">
+                      (Games available only on Computers.)
+                    </span>
                   </span>
                 </Link>
               </div>
             </nav>
+
+
 
             <div className="mt-6">
               <WeatherWidget />
