@@ -83,7 +83,7 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row gap-6">
             <div className="md:w-1/3 flex justify-center">
               <img
-                src="/placeholder.svg?height=300&width=300"
+                src="/img1.webp?height=300&width=300"
                 alt="Retro computer"
                 className="border-4 border-yellow-500 rounded-lg h-auto max-w-full"
               />

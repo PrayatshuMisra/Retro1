@@ -219,7 +219,7 @@ export default function HomePage() {
           <div className="bg-white border-4 border-purple-700 p-4 rounded-lg shadow-[0.5rem_0.5rem_0px_#000]">
             <h2 className="text-2xl font-bold text-purple-700 mb-4 underline">Welcome to RetroConnect!</h2>
             <div className="flex justify-center mb-4">
-              <img src="/img1.webp?height=200&width=400" alt="Welcome GIF" className="border-2 border-black" />
+              <img src="/retro_glitch.gif?height=200&width=400" alt="Welcome GIF" className="border-2 border-black" />
             </div>
             <p className="mb-4">
               👋 Hey there, web surfer! Welcome to RetroConnect, your new home on the information superhighway! This
