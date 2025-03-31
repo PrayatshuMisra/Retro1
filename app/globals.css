@@ -55,9 +55,27 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Comic Sans MS", "Chalkboard SE", cursive;
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7 7"/><path d="M10 10l7 7"/><path d="M5 3h5v5"/><path d="M19 19l-7-7"/></svg>'),
       auto;
   }
+}
+/* Add this to ensure consistent font styling across all elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+button,
+input,
+textarea,
+select,
+a {
+  font-family: "Comic Sans MS", "Chalkboard SE", cursive;
 }
 
 /* 90s-inspired custom styles */
@@ -208,3 +226,18 @@ th {
   }
 }
 
+/* Add responsive font sizing for mobile */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  body {
+    font-size: 0.95rem;
+  }
+}

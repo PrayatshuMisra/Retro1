@@ -31,9 +31,11 @@ export default function ForumPage() {
           </div>
 
           <div className="flex justify-end mb-4">
+          <Link href="/forum/create">
             <Button className="bg-gradient-to-r from-green-500 to-green-700 text-white font-bold py-2 px-4 border-4 border-green-900 rounded-lg shadow-[0.25rem_0.25rem_0px_#000] hover:translate-y-1 transition-transform">
               New Thread
             </Button>
+          </Link>
           </div>
 
           {/* Forum Categories */}
@@ -45,6 +47,9 @@ export default function ForumPage() {
                 <div className="text-sm text-gray-600 mt-1">15 threads • 42 replies • Last post: 2 hours ago</div>
               </div>
             </div>
+
+
+
 
             <div className="border-2 border-green-500 rounded-lg overflow-hidden">
               <div className="bg-green-500 text-white font-bold p-2">Tech Talk</div>

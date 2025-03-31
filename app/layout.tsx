@@ -14,6 +14,7 @@ export default function RootLayout({
       <head>
         <title>PixelConnect - A 90s Web Experience</title>
         <meta name="description" content="PixelConnect - A nostalgic journey back to the 90s web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>

@@ -41,31 +41,59 @@ export function RegisterForm() {
     setLoading(true)
 
     try {
-      // Call the register API endpoint
-      const response = await fetch("/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-        }),
-      })
+      // Get existing users from localStorage
+      const storedUsers = localStorage.getItem("registeredUsers")
+      const existingUsers = storedUsers ? JSON.parse(storedUsers) : []
 
-      const data = await response.json()
-
-      if (response.ok) {
-        // Store user info in localStorage for demo purposes
-        // In a real app, you'd use a proper auth solution
-        localStorage.setItem("user", JSON.stringify(data.user))
-
-        // Redirect to profile page
-        router.push("/profile")
-      } else {
-        setError(data.error || "Registration failed. Please try again.")
+      // Check if username already exists
+      if (existingUsers.some((user: any) => user.username.toLowerCase() === formData.username.toLowerCase())) {
+        setError("Username already taken!")
+        setLoading(false)
+        return
       }
+
+      // Create new user
+      const newUser = {
+        id: Date.now().toString(),
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        joinDate: new Date().toLocaleDateString(),
+        avatar: "/placeholder.svg?height=150&width=150",
+        bio: "Welcome to my profile!",
+        location: "Cyberspace",
+        interests: "Web surfing",
+        posts: 0,
+        status: "Online",
+      }
+
+      // Add to users array and save to localStorage
+      existingUsers.push(newUser)
+      localStorage.setItem("registeredUsers", JSON.stringify(existingUsers))
+
+      // Store current user info in localStorage
+      const { password, ...safeUser } = newUser
+      localStorage.setItem("user", JSON.stringify(safeUser))
+
+      // Also try the API call as a fallback
+      try {
+        await fetch("/api/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: formData.username,
+            email: formData.email,
+            password: formData.password,
+          }),
+        })
+      } catch (apiError) {
+        console.error("API registration failed, but local registration succeeded", apiError)
+      }
+
+      // Redirect to profile page
+      router.push("/profile")
     } catch (err) {
       setError("An error occurred. Please try again.")
     } finally {
@@ -75,7 +103,7 @@ export function RegisterForm() {
 
   return (
     <Card className="border-4 border-green-700 p-6 rounded-lg shadow-[0.5rem_0.5rem_0px_#000] max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-green-700 mb-4 underline text-center">Join PixelConnect!</h2>
+      <h2 className="text-2xl font-bold text-green-700 mb-4 underline text-center">Join RetroConnect!</h2>
 
       {error && <div className="bg-red-100 border-2 border-red-500 text-red-700 p-3 rounded mb-4">{error}</div>}
 
@@ -156,7 +184,7 @@ export function RegisterForm() {
       </div>
 
       <div className="mt-6 border-t-2 border-gray-300 pt-4">
-        <h3 className="font-bold text-center mb-2">Why Join PixelConnect?</h3>
+        <h3 className="font-bold text-center mb-2">Why Join RetroConnect?</h3>
         <ul className="list-disc list-inside">
           <li>Connect with other 90s web enthusiasts</li>
           <li>Create your own customizable profile page</li>
@@ -167,4 +195,3 @@ export function RegisterForm() {
     </Card>
   )
 }
-

@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -27,26 +27,40 @@ export function LoginForm() {
     setLoading(true)
 
     try {
-      // Call the login API endpoint
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+      // First check if we have users in localStorage
+      const storedUsers = localStorage.getItem("registeredUsers")
+      const users = storedUsers ? JSON.parse(storedUsers) : []
 
-      const data = await response.json()
+      // Find the user with matching username
+      const user = users.find((u: any) => u.username.toLowerCase() === formData.username.toLowerCase())
 
-      if (response.ok) {
-        // Store user info in localStorage for demo purposes
-        // In a real app, you'd use a proper auth solution
-        localStorage.setItem("user", JSON.stringify(data.user))
+      if (user && user.password === formData.password) {
+        // Successful login
+        localStorage.setItem("user", JSON.stringify(user))
 
         // Redirect to profile page
         router.push("/profile")
       } else {
-        setError(data.error || "Invalid username or password. Try CoolUser99/password123")
+        // If no match in localStorage, try the API as fallback
+        const response = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+
+        const data = await response.json()
+
+        if (response.ok) {
+          // Store user info in localStorage
+          localStorage.setItem("user", JSON.stringify(data.user))
+
+          // Redirect to profile page
+          router.push("/profile")
+        } else {
+          setError(data.error || "Invalid username or password. Try CoolUser99/password123")
+        }
       }
     } catch (err) {
       setError("An error occurred. Please try again.")
@@ -55,9 +69,18 @@ export function LoginForm() {
     }
   }
 
+  useEffect(() => {
+    // Check if we have any registered users
+    const storedUsers = localStorage.getItem("registeredUsers")
+    if (!storedUsers || JSON.parse(storedUsers).length === 0) {
+      // If no users, add a hint
+      setError("No registered users yet. Try CoolUser99/password123 or register a new account.")
+    }
+  }, [])
+
   return (
     <Card className="border-4 border-blue-700 p-6 rounded-lg shadow-[0.5rem_0.5rem_0px_#000] max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-blue-700 mb-4 underline text-center">Login to PixelConnect</h2>
+      <h2 className="text-2xl font-bold text-blue-700 mb-4 underline text-center">Login to RetroConnect</h2>
 
       {error && <div className="bg-red-100 border-2 border-red-500 text-red-700 p-3 rounded mb-4">{error}</div>}
 

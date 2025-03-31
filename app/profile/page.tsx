@@ -23,7 +23,7 @@ interface User {
   interests: string
   posts: number
   status: string
-  postContent?: string[] // This one can be optional
+  postContent?: string[]
 }
 
 export default function ProfilePage() {
@@ -35,6 +35,32 @@ export default function ProfilePage() {
   const [newPost, setNewPost] = useState("")
   const [activeTab, setActiveTab] = useState("profile")
   const fileInputRef = useRef<HTMLInputElement>(null)
+
+  // Add these state variables after the existing useState declarations
+  const [showGuestbookForm, setShowGuestbookForm] = useState(false)
+  const [guestbookMessage, setGuestbookMessage] = useState("")
+  const [guestbookEntries, setGuestbookEntries] = useState([
+    {
+      id: "1",
+      author: "WebMaster2000",
+      date: "3/25/1999",
+      message: "Cool profile page! Love the design!",
+    },
+    {
+      id: "2",
+      author: "PixelArtist",
+      date: "3/20/1999",
+      message: "Thanks for the friend request! Your site rocks!",
+    },
+  ])
+  const [showPhotoUpload, setShowPhotoUpload] = useState(false)
+  const [photos, setPhotos] = useState([
+    { id: "1", url: "/comp.jpg?height=100&width=100", caption: "My Computer" },
+    { id: "2", url: "/gaming.webp?height=100&width=100", caption: "Gaming Setup" },
+    { id: "3", url: "/cds.jpg?height=100&width=100", caption: "CD Collection" },
+  ])
+  const [newPhotoCaption, setNewPhotoCaption] = useState("")
+  const [newPhotoUrl, setNewPhotoUrl] = useState("")
 
   useEffect(() => {
     // Check if user is logged in
@@ -51,22 +77,8 @@ export default function ProfilePage() {
   }, [router])
 
   const handleEditProfile = () => {
-    if (user) {
-      setEditedUser({
-        id: user.id,
-        username: user.username,
-        email: user.email,
-        joinDate: user.joinDate,
-        avatar: user.avatar,
-        bio: user.bio,
-        location: user.location,
-        interests: user.interests,
-        posts: user.posts,
-        status: user.status,
-        postContent: user.postContent || []
-      })
-      setIsEditModalOpen(true)
-    }
+    setEditedUser({ ...user!})
+    setIsEditModalOpen(true)
   }
 
   const handleSaveProfile = () => {
@@ -85,10 +97,9 @@ export default function ProfilePage() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setEditedUser(prev => {
-      if (!prev) return null
-      return { ...prev, [name]: value }
-    })
+    if (editedUser) {
+      setEditedUser({ ...editedUser, [name]: value })
+    }
   }
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -128,6 +139,41 @@ export default function ProfilePage() {
     alert("Post added successfully!")
   }
 
+  // Add these handler functions before the return statement
+  const handleGuestbookSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!guestbookMessage.trim()) return
+
+    const newEntry = {
+      id: Date.now().toString(),
+      author: "You",
+      date: new Date().toLocaleDateString(),
+      message: guestbookMessage,
+    }
+
+    setGuestbookEntries([newEntry, ...guestbookEntries])
+    setGuestbookMessage("")
+    setShowGuestbookForm(false)
+  }
+
+  const handlePhotoUpload = () => {
+    if (!newPhotoCaption.trim() || !newPhotoUrl) {
+      alert("Please upload a photo and add a caption!")
+      return
+    }
+
+    const newPhoto = {
+      id: Date.now().toString(),
+      url: newPhotoUrl,
+      caption: newPhotoCaption,
+    }
+
+    setPhotos([...photos, newPhoto])
+    setNewPhotoCaption("")
+    setNewPhotoUrl("")
+    setShowPhotoUpload(false)
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-teal-300 flex items-center justify-center">
@@ -141,7 +187,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-teal-300 text-purple-900 font-['Comic_Sans_MS',_cursive]">
+    <div className="min-h-screen bg-teal-300 text-purple-900">
       {/* Header */}
       <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4 border-b-8 border-black text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-[0.2rem_0.2rem_0px_#000]">
@@ -154,12 +200,23 @@ export default function ProfilePage() {
       <main className="container mx-auto p-4">
         <div className="bg-white border-4 border-purple-700 p-4 rounded-lg shadow-[0.5rem_0.5rem_0px_#000] mb-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-purple-700 underline">{user?.username}'s Profile</h2>
-            <Link href="/">
-              <Button className="bg-blue-500 text-white font-bold py-1 px-4 border-2 border-blue-900 rounded">
-                Back to Home
+            <h2 className="text-2xl font-bold text-purple-700 underline">{user.username}'s Profile</h2>
+            <div className="flex space-x-2">
+              <Link href="/">
+                <Button className="bg-blue-500 text-white font-bold py-1 px-4 border-2 border-blue-900 rounded">
+                  Back to Home
+                </Button>
+              </Link>
+              <Button
+                onClick={() => {
+                  localStorage.removeItem("user")
+                  router.push("/login")
+                }}
+                className="bg-red-500 text-white font-bold py-1 px-4 border-2 border-red-900 rounded"
+              >
+                Log Out
               </Button>
-            </Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -174,7 +231,7 @@ export default function ProfilePage() {
                   />
                 </div>
                 <h3 className="text-xl font-bold text-blue-800">{user.username}</h3>
-                <p className="text-sm text-gray-600 mb-2">Member since: {user.joinDate.replace(/\d{4}/, '1999')}</p>
+                <p className="text-sm text-gray-600 mb-2">Member since: {user.joinDate}</p>
                 <div className="flex justify-center space-x-2 mb-4">
                   <img src="/mus.webp?height=20&width=20" alt="Star" className="h-5 w-5" />
                   <img src="/ntbk.jpg?height=20&width=20" alt="Star" className="h-5 w-5" />
@@ -221,10 +278,10 @@ export default function ProfilePage() {
                 <div className="mt-4">
                   <h4 className="font-bold text-pink-700">My Favorite Links:</h4>
                   <ul className="list-disc list-inside ml-4 text-blue-600">
-                    <li className="underline cursor-pointer"><a href="https://www.netflix.com/in/browse/genre/2691941">Nostalgic 90s movies Collection</a></li>
-                    <li className="underline cursor-pointer"><a href="https://90kids.com/games/">Cool 90s Games Archive</a></li>
-                    <li className="underline cursor-pointer"><a href="https://www.my90splaylist.com/">Best Music Collection</a></li>
-                    <li className="underline cursor-pointer"><a href="https://www.w3.org/TR/html401/intro/intro.html">Resource to HTML 4</a></li>
+                  <li className="underline cursor-pointer"><a href="https://www.netflix.com/in/browse/genre/2691941">Nostalgic 90s movies Collection</a></li>
+                  <li className="underline cursor-pointer"><a href="https://90kids.com/games/">Cool 90s Games Archive</a></li>
+                  <li className="underline cursor-pointer"><a href="https://www.my90splaylist.com/">Best Music Collection</a></li>
+                  <li className="underline cursor-pointer"><a href="https://www.w3.org/TR/html401/intro/intro.html">Resource to HTML 4</a></li>
                   </ul>
                 </div>
               </div>
@@ -258,50 +315,135 @@ export default function ProfilePage() {
               <div className="border-4 border-green-500 p-4 rounded-lg bg-green-100 mb-6">
                 <h3 className="text-xl font-bold text-green-700 underline mb-2">My Guestbook</h3>
                 <div className="space-y-3">
-                  <div className="bg-white border-2 border-gray-300 p-3 rounded">
-                    <div className="flex justify-between">
-                      <span className="font-bold text-blue-600 underline">WebMaster2000</span>
-                      <span className="text-sm text-gray-600">3/25/1999</span>
+                  {guestbookEntries.map((entry) => (
+                    <div key={entry.id} className="bg-white border-2 border-gray-300 p-3 rounded">
+                      <div className="flex justify-between">
+                        <span className="font-bold text-blue-600 underline">{entry.author}</span>
+                        <span className="text-sm text-gray-600">{entry.date}</span>
+                      </div>
+                      <p className="mt-1">{entry.message}</p>
                     </div>
-                    <p className="mt-1">Cool profile page! Love the design!</p>
-                  </div>
-                  <div className="bg-white border-2 border-gray-300 p-3 rounded">
-                    <div className="flex justify-between">
-                      <span className="font-bold text-blue-600 underline">PixelArtist</span>
-                      <span className="text-sm text-gray-600">3/20/1999</span>
-                    </div>
-                    <p className="mt-1">Thanks for the friend request! Your site rocks!</p>
-                  </div>
+                  ))}
                 </div>
-                <div className="mt-4">
-                  <Button className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-1 px-4 border-2 border-blue-900 rounded">
-                    Sign Guestbook
-                  </Button>
-                </div>
+
+                {showGuestbookForm ? (
+                  <div className="mt-4 bg-gray-200 border-2 border-gray-400 p-3 rounded">
+                    <h4 className="font-bold mb-2">Sign the Guestbook:</h4>
+                    <form onSubmit={handleGuestbookSubmit} className="space-y-2">
+                      <div>
+                        <label className="block">Your Message:</label>
+                        <textarea
+                          value={guestbookMessage}
+                          onChange={(e) => setGuestbookMessage(e.target.value)}
+                          className="w-full border-2 border-gray-500 p-1 rounded h-20"
+                          required
+                        ></textarea>
+                      </div>
+                      <div className="flex space-x-2">
+                        <Button
+                          type="submit"
+                          className="bg-gradient-to-r from-green-500 to-green-700 text-white font-bold py-1 px-4 border-2 border-green-900 rounded"
+                        >
+                          Submit
+                        </Button>
+                        <Button
+                          type="button"
+                          onClick={() => setShowGuestbookForm(false)}
+                          className="bg-gray-500 text-white font-bold py-1 px-4 border-2 border-gray-700 rounded"
+                        >
+                          Cancel
+                        </Button>
+                      </div>
+                    </form>
+                  </div>
+                ) : (
+                  <div className="mt-4">
+                    <Button
+                      onClick={() => setShowGuestbookForm(true)}
+                      className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-1 px-4 border-2 border-blue-900 rounded"
+                    >
+                      Sign Guestbook
+                    </Button>
+                  </div>
+                )}
               </div>
 
               {/* Photo Gallery */}
               <div className="border-4 border-purple-500 p-4 rounded-lg bg-purple-100">
                 <h3 className="text-xl font-bold text-purple-700 underline mb-2">My Photo Gallery</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  <div className="border-2 border-yellow-500 p-2 bg-white">
-                    <img src="/comp.jpg?height=100&width=100" alt="Gallery image 1" className="w-full h-auto" />
-                    <p className="text-center text-sm mt-1">My Computer</p>
-                  </div>
-                  <div className="border-2 border-yellow-500 p-2 bg-white">
-                    <img src="/gaming.webp?height=100&width=100" alt="Gallery image 2" className="w-full h-auto" />
-                    <p className="text-center text-sm mt-1">Gaming Setup</p>
-                  </div>
-                  <div className="border-2 border-yellow-500 p-2 bg-white">
-                    <img src="/cds.jpg?height=100&width=100" alt="Gallery image 3" className="w-full h-auto" />
-                    <p className="text-center text-sm mt-1">CD Collection</p>
-                  </div>
+                  {photos.map((photo) => (
+                    <div key={photo.id} className="border-2 border-yellow-500 p-2 bg-white">
+                      <img src={photo.url || "/placeholder.svg"} alt={photo.caption} className="w-full h-auto" />
+                      <p className="text-center text-sm mt-1">{photo.caption}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className="text-center mt-4">
-                  <Button className="bg-gradient-to-r from-yellow-500 to-yellow-700 text-white font-bold py-1 px-4 border-2 border-yellow-900 rounded">
-                    Add Photos
-                  </Button>
-                </div>
+
+                {showPhotoUpload ? (
+                  <div className="mt-4 bg-gray-200 border-2 border-gray-400 p-3 rounded">
+                    <h4 className="font-bold mb-2">Add a New Photo:</h4>
+                    <div className="space-y-2">
+                      <div>
+                        <label className="block">Upload Photo:</label>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0]
+                            if (file) {
+                              const reader = new FileReader()
+                              reader.onload = (event) => {
+                                if (event.target?.result) {
+                                  setNewPhotoUrl(event.target.result as string)
+                                }
+                              }
+                              reader.readAsDataURL(file)
+                            }
+                          }}
+                          className="w-full border-2 border-gray-500 p-1 rounded"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block">Photo Caption:</label>
+                        <input
+                          type="text"
+                          value={newPhotoCaption}
+                          onChange={(e) => setNewPhotoCaption(e.target.value)}
+                          className="w-full border-2 border-gray-500 p-1 rounded"
+                          required
+                        />
+                      </div>
+                      <div className="flex space-x-2">
+                        <Button
+                          onClick={handlePhotoUpload}
+                          className="bg-gradient-to-r from-yellow-500 to-yellow-700 text-white font-bold py-1 px-4 border-2 border-yellow-900 rounded"
+                        >
+                          Add Photo
+                        </Button>
+                        <Button
+                          onClick={() => {
+                            setShowPhotoUpload(false)
+                            setNewPhotoUrl("")
+                          }}
+                          className="bg-gray-500 text-white font-bold py-1 px-4 border-2 border-gray-700 rounded"
+                        >
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-center mt-4">
+                    <Button
+                      onClick={() => setShowPhotoUpload(true)}
+                      className="bg-gradient-to-r from-yellow-500 to-yellow-700 text-white font-bold py-1 px-4 border-2 border-yellow-900 rounded"
+                    >
+                      Add Photos
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -432,7 +574,7 @@ export default function ProfilePage() {
                         value={newPost}
                         onChange={(e) => setNewPost(e.target.value)}
                         className="border-2 border-gray-500 p-2 rounded w-full h-32"
-                        placeholder="What's on your mind? Share it with the PixelConnect community!"
+                        placeholder="What's on your mind? Share it with the RetroConnect community!"
                       />
                     </div>
 
@@ -468,14 +610,14 @@ export default function ProfilePage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 border-t-8 border-black text-center text-white mt-8">
-      <p>© 1999 PixelConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
-        <div className="flex justify-center space-x-4 mt-2">
-          <a 
+        <p>© 1999 PixelConnect - Best viewed with Netscape Navigator 4.0 or Internet Explorer 5.0</p>
+          <div className="flex justify-center space-x-4 mt-2">
+            <a 
             href="https://sillydog.org/netscape/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
-          >
+            >
             <img src="/netscape.png?height=40&width=40" alt="Netscape Now!" className="h-10" />
           </a>
           <a 
