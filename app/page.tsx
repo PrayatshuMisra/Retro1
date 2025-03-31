@@ -188,8 +188,16 @@ export default function HomePage() {
                     <span className="absolute -top-2 -right-10 bg-red-500 text-white text-xs px-1 rounded animate-pulse">
                       NEW!
                     </span>
-                    <span className="absolute top-6 -right-32 text-black text-xs px-1 rounded">
-                      (Games available only on Computers.)
+                  </span>
+                </Link>
+              </div>
+              <div className="flex items-center">
+                <img src="/placeholder.svg?height=20&width=20" alt="Admin icon" className="mr-2 h-5 w-5" />
+                <Link href="/admin" className="text-blue-600 hover:text-blue-800 underline">
+                  <span className="relative">
+                    Admin Dashboard
+                    <span className="absolute -top-2 -right-10 bg-purple-500 text-white text-xs px-1 rounded">
+                      STAFF
                     </span>
                   </span>
                 </Link>
