@@ -135,6 +135,7 @@ export default function AboutPage() {
                   <li>Responsive design (works on modern devices)</li>
                   <li>TypeScript (for static typing and returning errors)</li>
                   <li>Gaming link (for retro gaming lovers)</li>
+                  <li>Admin Rights and Actions</li>
                 </ul>
               </div>
 
@@ -146,6 +147,7 @@ export default function AboutPage() {
                   <li>Database for managing users' profile updations</li>
                   <li>Weather API integration</li>
                   <li>User authentication system using password match etc.</li>
+                  <li>Supabase database</li>
                 </ul>
               </div>
             </div>
